@@ -1,0 +1,39 @@
+import java.util.Scanner;
+public class Awach_Bidir_and_kuteba  {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter type of loan.  \n" + " 1, Business"+ "\n" + " 2, car "+ "\n" + " 3, House"+ "\n");
+        String loanType = input.next();
+        if (loanType .equalsIgnoreCase("car") || loanType .equalsIgnoreCase("Business")|| loanType .equalsIgnoreCase("House")){
+            System.out.println("How many month have you have saved? ");
+            int savingMonth = input.nextInt();
+            if (savingMonth < 6){
+                System.out.println("You are not eligible for the loan.");
+            }
+            else {
+                System.out.println("Enter you are saving amount in " + savingMonth+"months?");
+                int savingAmount = input.nextInt();
+                System.out.println("Enter amount of money to hava as a loan");
+                int moneyToLoan = input.nextInt();
+                if (savingAmount < moneyToLoan / 4 ){
+                    System.out.println("you have insufficient saving to take a loan");
+                }
+                else {
+                    System.out.println("Enter the years to repay the loan back?");
+                    int interest = input.nextInt();
+
+                    if (loanType .equalsIgnoreCase("car")){
+                        double interestOfCar = interest * (0.13) * moneyToLoan;
+                        System.out.println("Your interest is "+ interestOfCar );
+                    }else if (loanType .equalsIgnoreCase("Business") ) {
+                        double interestOfBusiness = interest * (0.08) * moneyToLoan;
+                        System.out.println("Your interest is "+ interestOfBusiness );
+                    }else if (loanType .equalsIgnoreCase("house")){
+                        double interestOfHouse = interest * (0.15) * moneyToLoan;
+                        System.out.println("Your interest is "+ interestOfHouse );
+                    }
+                }
+            }
+        }
+    }
+}
